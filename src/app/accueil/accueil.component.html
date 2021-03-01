@@ -1,0 +1,46 @@
+<div class ="container-fluid">
+  <h2><strong>La liste des mots</strong> </h2>
+</div>
+<div class="container">
+  <div class="panel panel-default">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Mot</th>
+          <th scope="col">Defintion</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tr class="list-group" *ngFor="let mot of mots; let i = index">
+        <th scope="col">{{ i + 1 }}</th>
+        <td>
+          <input   [(ngModel)]="mot.mot">
+        </td>
+        <td>
+            <input  [(ngModel)]="mot.definition " >
+        </td>
+        <td>
+        <button class="btn btn-xs btn-danger pull-right"  (click)="supprimerMot(mot)">
+            <span class="glyphicon glyphicon-minus"></span>
+        </button>
+        <button class="btn btn-xs btn-success pull-right" *ngIf="mot.mot && mot.definition" (click)="modifierMot()">
+            <span class="glyphicon glyphicon-ok-sign"></span>
+        </button>
+       </td>
+      </tr>
+    </table>
+  </div>
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-4">
+        <button class="btn btn-primary" (click)="ajouterMot()">Ajouter des Mots</button>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-primary" (click)="gennerGrille()">Générer la grille</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
